@@ -1,44 +1,48 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
-import '../../Style/Navbar.css'; // Link to the updated CSS for styling
+import { Link, useNavigate } from 'react-router-dom';
+import '../Style/Navbar.css';
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const [redirectPage, setRedirectPage] = useState('');
-  const navigate = useNavigate(); // Initialize navigate instead of history
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
-  // Check if the user is logged in (this is just a placeholder for actual logic)
-  const isLoggedIn = false; // Update this logic based on your auth system
+  const isLoggedIn = false;
 
   const handleNavClick = (page) => {
     if (!isLoggedIn) {
       setRedirectPage(page);
       setShowModal(true);
     } else {
-      navigate(`/${page}`); // Use navigate instead of history.push
+      navigate(`/${page}`);
     }
   };
 
   const handleLoginRedirect = () => {
-    navigate('/login'); // Use navigate instead of history.push
+    navigate('/login');
     setShowModal(false);
   };
 
   const handleRegisterRedirect = () => {
-    navigate('/register'); // Use navigate instead of history.push
+    navigate('/register');
     setShowModal(false);
+  };
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container">
         <Link className="navbar-brand" to="/">Finance Assistant</Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" onClick={toggleNavbar}>
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/" onClick={() => handleNavClick('')}>Home</Link>
