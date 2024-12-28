@@ -1,0 +1,127 @@
+/* Import Google Fonts for a modern and elegant look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap'); /* Poppins font */
+
+.home-container {
+  position: relative;
+  height: 100vh;
+  background: url('../src/img/Hb3.webp') no-repeat center center/cover; /* Ensure correct image path */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevent scrolling issues */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font globally */
+}
+
+/* Dimmed Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Dim overlay for better readability */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Content Centering */
+.content {
+  color: #fff;
+  text-align: center;
+  max-width: 600px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Title Styling with increased size and more spacing */
+.title {
+  font-size: 3rem; /* Larger title font */
+  font-weight: 600; /* Slightly bolder title */
+  margin-bottom: 2rem; /* Increased margin */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Subtitle Styling with larger font size and more spacing */
+.subtitle {
+  font-size: 1.5rem; /* Larger subtitle font */
+  margin-bottom: 2rem; /* Increased space below subtitle */
+  line-height: 1.6; /* More line spacing for better readability */
+  font-weight: 400;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Increased gap between buttons */
+}
+
+/* Button Styling */
+.btn {
+  padding: 1rem 1.8rem; /* Increased padding */
+  border: none;
+  border-radius: 10px; /* Rounded corners for buttons */
+  font-size: 1.2rem; /* Larger font size for buttons */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase; /* Uppercase text for a stronger look */
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-animated {
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem; /* Adjusted font size for mobile */
+  }
+  .subtitle {
+    font-size: 1.2rem; /* Adjusted subtitle size */
+  }
+  .btn {
+    padding: 0.9rem 1.5rem; /* Slightly smaller padding for mobile */
+    font-size: 1rem;
+  }
+}
